@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SampleApp.Model;
-using System.Data;
 
 namespace SampleApp.Persistence;
 
