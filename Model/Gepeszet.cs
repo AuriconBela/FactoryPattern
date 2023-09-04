@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SampleApp.Persistence;
+using System.Collections.Immutable;
 
 namespace SampleApp.Model;
 
@@ -26,6 +27,8 @@ public class Gepeszet
 			throw;
 		}
     }
+
+    public IImmutableList<IGepeszetElem> Elemek => _elemek.ToImmutableList();
 
     //public async Task<bool> SaveToFile(string fileName)
     //{

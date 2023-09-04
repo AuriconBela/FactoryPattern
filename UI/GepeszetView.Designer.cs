@@ -37,27 +37,27 @@
             // 
             // lbName
             // 
-            lbName.AutoSize = true;
+            lbName.AutoEllipsis = true;
             lbName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbName.Location = new Point(3, 9);
             lbName.Name = "lbName";
-            lbName.Size = new Size(50, 15);
+            lbName.Size = new Size(307, 15);
             lbName.TabIndex = 0;
             lbName.Text = "lbName";
             // 
             // lbDesc
             // 
-            lbDesc.AutoSize = true;
+            lbDesc.AutoEllipsis = true;
             lbDesc.Location = new Point(3, 35);
             lbDesc.Name = "lbDesc";
-            lbDesc.Size = new Size(38, 15);
+            lbDesc.Size = new Size(317, 15);
             lbDesc.TabIndex = 1;
             lbDesc.Text = "label2";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 53);
+            pictureBox1.Location = new Point(64, 77);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 200);
             pictureBox1.TabIndex = 2;
@@ -67,15 +67,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.Control;
             Controls.Add(pictureBox1);
             Controls.Add(lbDesc);
             Controls.Add(lbName);
             Name = "GepeszetView";
-            Size = new Size(210, 258);
+            Size = new Size(323, 386);
+            Load += GepeszetView_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
