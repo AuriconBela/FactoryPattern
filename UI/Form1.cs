@@ -1,6 +1,6 @@
 using SampleApp.Model;
 using SampleApp.Persistence;
-using SampleApp.UI;
+using SampleApp.Persistence.Factory;
 
 namespace SampleApp
 {

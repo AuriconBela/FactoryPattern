@@ -2,9 +2,9 @@
 
 using SampleApp.Misc;
 using SampleApp.Model;
-using SampleApp.Persistence.Factory;
+using SampleApp.UI;
 
-namespace SampleApp.UI;
+namespace SampleApp.Persistence.Factory;
 
 public static class ViewFactory
 {
@@ -33,7 +33,7 @@ public static class ViewFactory
 
         var type = viewAttribute.Type;
 
-        return Activator.CreateInstance(type,gepeszetElem) as GepeszetView;
+        return Activator.CreateInstance(type, gepeszetElem) as GepeszetView;
 #endif
     }
 }
