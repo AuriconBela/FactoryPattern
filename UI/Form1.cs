@@ -37,31 +37,12 @@ namespace SampleApp
             if (dgData.SelectedRows.Count == 0) return;
 
             var ge = dgData.SelectedRows?[0]?.DataBoundItem as IGepeszetElem;
-            GepeszetView control;
+            var control = ViewFactory.CreateView(ge);
 
-            switch (ge)
-            {
-                case IFutes futes:
-                    control = new FutesView(futes);
-                    control.Show();
-                    pnlDetails.Controls.Add(control);
-                    break;
-                case IHutes futes:
-                    control = new HutesView(futes);
-                    control.Show();
-                    pnlDetails.Controls.Add(control);
-                    break;
-                    //case Truck truck:
-                    //    WriteLine("Truck!");
-                    //    break;
-                    //case null:
-                    //    throw new ArgumentNullException();
-                    //    break;
-                    //default:
-                    //    // Anything other than Car, Truck or null
-                    //    throw new UnknownVehicleException();
-                    //    break;
-            }
+            if (control == null) return;
+
+            control.Show();
+            pnlDetails.Controls.Add(control);
         }
     }
 }
