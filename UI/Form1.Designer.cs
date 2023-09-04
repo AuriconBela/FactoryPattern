@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             dgData = new DataGridView();
             pnlDetails = new Panel();
@@ -59,6 +60,7 @@
             // 
             // pnlDetails
             // 
+            pnlDetails.BorderStyle = BorderStyle.FixedSingle;
             pnlDetails.Location = new Point(465, 52);
             pnlDetails.Name = "pnlDetails";
             pnlDetails.Size = new Size(323, 386);
@@ -73,10 +75,11 @@
             Controls.Add(dgData);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Factory pattern";
             ((System.ComponentModel.ISupportInitialize)dgData).EndInit();
             ResumeLayout(false);
         }

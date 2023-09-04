@@ -13,7 +13,7 @@ public class GepeszetConverter : JsonCreationConverter<GepeszetElem?>
 
     protected override GepeszetElem? Create(Type objectType, JObject jObject)
     {
-        if (FieldExists("ClassType", jObject, out var value))
+        if (FieldExists(nameof(ClassType), jObject, out var value))
         {
             var type = typeof(IGepeszetElem).Assembly
                                             .GetTypes()

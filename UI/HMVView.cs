@@ -1,33 +1,23 @@
 ﻿using SampleApp.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace SampleApp.UI
+namespace SampleApp.UI;
+
+public partial class HMVView : GepeszetView
 {
-    public partial class HMVView : GepeszetView
+    public HMVView()
     {
-        public HMVView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        public HMVView(IGepeszetElem gepeszetElem) : base(gepeszetElem)
-        {
-            InitializeComponent();
-        }
+    public HMVView(IGepeszetElem gepeszetElem) : base(gepeszetElem)
+    {
+        InitializeComponent();
+    }
 
-        protected override void FillView()
-        {
-            base.FillView();
-            label1.Text = (_gepeszetElem as IHasznalatiMelegViz)?.HasznalatiMelegVizreJellemzoAdat1;
-            label2.Text = (_gepeszetElem as IHasznalatiMelegViz)?.HasznalatiMelegVizreJellemzoAdat2.ToString();
-        }
+    protected override void FillView()
+    {
+        base.FillView();
+        label1.Text = (_gepeszetElem as IHasznalatiMelegViz)?.HasznalatiMelegVizreJellemzoAdat1;
+        label2.Text = (_gepeszetElem as IHasznalatiMelegViz)?.HasznalatiMelegVizreJellemzoAdat2.ToString();
     }
 }

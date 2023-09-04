@@ -1,11 +1,12 @@
 using SampleApp.Model;
+using SampleApp.Persistence;
 using SampleApp.UI;
 
 namespace SampleApp
 {
     public partial class Form1 : Form
     {
-        private Gepeszet _gepeszet = new();
+        private Gepeszet _gepeszet = new(new Repository("Assets\\sampledataset.json"));
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace SampleApp
 
         private async Task<bool> FillGrid()
         {
-            var result = await _gepeszet.LoadFromFile("Assets\\sampledataset.json");
+            var result = await _gepeszet.RetrieveElements();
 
             if (!result) { return false; }
 
@@ -34,6 +35,7 @@ namespace SampleApp
         private void dgData_SelectionChanged(object sender, EventArgs e)
         {
             pnlDetails.Controls.Clear();
+
             if (dgData.SelectedRows.Count == 0) return;
 
             var ge = dgData.SelectedRows?[0]?.DataBoundItem as IGepeszetElem;

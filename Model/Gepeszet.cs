@@ -1,34 +1,23 @@
-﻿using Newtonsoft.Json;
-using SampleApp.Persistence;
+﻿using SampleApp.Persistence;
 using System.Collections.Immutable;
 
 namespace SampleApp.Model;
 
 public class Gepeszet
 {
-    private readonly List<IGepeszetElem> _elemek = new();
+    private readonly IRepository _repository;
 
-    public async Task<bool> LoadFromFile(string fileName)
+    public Gepeszet(IRepository repository)
     {
-        try
-        {
-            var fileContent = await File.ReadAllTextAsync(fileName);
-           
-            var data = JsonConvert.DeserializeObject<List<GepeszetElem>>(fileContent, new GepeszetConverter());
-
-            if (data == null) { return false; }
-
-            _elemek.AddRange(data);
-            return true;
-        }
-        catch (Exception)
-        {
-			return false;
-			throw;
-		}
+        _repository = repository;
     }
 
-    public IImmutableList<IGepeszetElem> Elemek => _elemek.ToImmutableList();
+    public async Task<bool> RetrieveElements()
+    {
+        return await _repository.LoadFromFile();
+    }
+
+    public IImmutableList<IGepeszetElem> Elemek => _repository.Elemek;
 
     //public async Task<bool> SaveToFile(string fileName)
     //{
