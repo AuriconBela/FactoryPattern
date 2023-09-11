@@ -1,4 +1,4 @@
-﻿#define SwitchMethod
+﻿//#define SwitchMethod
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SampleApp.Model;
@@ -20,7 +20,7 @@ public class GepeszetConverter : JsonCreationConverter<GepeszetElem?>
             return value switch
             {
                 "Futes" => new Futes(),
-                "Hutes" => new Futes(),
+                "Hutes" => new Hutes(),
                 "HasznalatiMelegViz" => new HasznalatiMelegViz(),
                 "Szellozes" => new Szellozes(),
                 "Vilagitas" => new Vilagitas(),

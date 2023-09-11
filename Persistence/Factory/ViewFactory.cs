@@ -1,4 +1,4 @@
-﻿#define SwitchMethod
+﻿//#define SwitchMethod
 
 using SampleApp.Misc;
 using SampleApp.Model;
