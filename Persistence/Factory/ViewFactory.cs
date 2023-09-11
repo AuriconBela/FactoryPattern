@@ -1,4 +1,4 @@
-﻿//#define SwitchMethod
+﻿#define SwitchMethod
 
 using SampleApp.Misc;
 using SampleApp.Model;
@@ -25,6 +25,7 @@ public static class ViewFactory
             _ => null
         };
 #else
+        #region Aktivátor
         var viewAttribute = gepeszetElem.ClassType!.GetAttribute<ViewAttributeAttribute>();
         if (viewAttribute == null)
         {
@@ -34,6 +35,7 @@ public static class ViewFactory
         var type = viewAttribute.Type;
 
         return Activator.CreateInstance(type, gepeszetElem) as GepeszetView;
+        #endregion
 #endif
     }
 }
